@@ -8,12 +8,27 @@ import (
 
 func print(i interface{}, s string) {
 
-	ti := reflect.TypeOf(i)
-	vi := reflect.ValueOf(i)
-	ki := vi.Kind()
+	t := reflect.TypeOf(i)
+	v := reflect.ValueOf(i)
+	k := v.Kind()
 
 	fmt.Printf("i: %-12v(%10s)    TypeOf: %-15sValueOf: %-25sKind: %s\n",
-		i, s, ti.String(), vi.String(), ki.String())
+		i, s, t.String(), v.String(), k.String())
+
+	switch k {
+	case reflect.Struct:
+		for i := 0; i < v.NumField(); i++ {
+			fv := v.Field(i)
+			ft := fv.Type()
+
+			// The name for the field is not available in the field value.
+			// It is only available through the structure
+			fName := v.Type().Field(i).Name
+
+			fmt.Printf("      field: %12s    type: %12s   value: %12v\n",
+				fName, ft, fv)
+		}
+	}
 }
 
 type Person struct {
