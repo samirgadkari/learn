@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"reflect"
+	"time"
 )
 
 func print(i interface{}, s string) {
@@ -11,8 +12,15 @@ func print(i interface{}, s string) {
 	vi := reflect.ValueOf(i)
 	ki := vi.Kind()
 
-	fmt.Printf("i: %-12v(%10s) TypeOf: %-12sValueOf: %-17sKind: %s\n",
+	fmt.Printf("i: %-12v(%10s)    TypeOf: %-15sValueOf: %-25sKind: %s\n",
 		i, s, ti.String(), vi.String(), ki.String())
+}
+
+type Person struct {
+	FirstName string    `json:"firstName"`
+	LastName  string    `json:"lastName"`
+	SSN       uint      `json:"SSN"`
+	Birthdate time.Time `json:"Birthdate"`
 }
 
 func main() {
@@ -27,4 +35,13 @@ func main() {
 	s := "this"
 	print(s, "string")
 	print(&s, "&string")
+
+	person := Person{
+		FirstName: "Bob",
+		LastName:  "Barker",
+		SSN:       uint(123456789),
+		Birthdate: time.Date(1960, time.January, 1, 0, 0, 0, 0, time.UTC),
+	}
+	print(person, "Person")
+	print(&person, "&Person")
 }
