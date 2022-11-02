@@ -1,3 +1,8 @@
+# Terraform files
+.terraform
+*.tfstate
+*.tfstate.backup
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
