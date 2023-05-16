@@ -1,0 +1,70 @@
+<!-- The DOCTYPE element is required -->
+<!DOCTYPE html>
+<!-- The html element is known as the root element.
+	 It wraps all the page content. -->
+<html lang="en-US">
+
+	<!-- Contains everything but the page content. It includes keywords,
+		 page description appearing in search results,
+		 CSS,
+		 charset declarations -->
+	<head>
+		<!-- This tag tells the browser to refresh the page every 3 seconds -->
+		<meta http-equiv="refresh" content="3">
+		<meta charset="utf-8" />
+
+		<!-- title appears in the browser tab -->
+		<title>My test page</title> 
+	</head>
+  
+	<!-- body contains all the page content -->
+	<body>
+		<!-- The class tag is an attribute of the paragraph tag -->
+		<p class="editor-note">My cat is <strong>very</strong> grumpy</p>
+		<!-- Attribute values can be specified with single or double quotes -->
+		<!-- Sometimes attributes are written without values. These are called
+			 Boolean attributes.
+			 The disabled attribute does not allow the user to type in any text. -->
+		<input type="text" disabled="disabled" />
+		<!-- Instead of typing the above line, type this -->
+		<input type="text" disabled />
+		<!-- Without the disabled attribute, user can type in text -->
+		<input type="text" />
+
+		<br />
+		<!-- The image element is a void element. 
+			 Void elements dont have content between their start/end tags.
+			 You can instead put a /> instead of > at the end of the start tag,
+			 and not put in any end tag. -->
+		<img src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png" alt="Firefox icon" />
+
+		<br />
+		<!-- The anchor element:
+				title = Tooltip content
+				target = _blank opens anchor content in a new tab in the browser -->
+		<a href="https://www.mozilla.org" 
+		   title="The Mozilla homepage" 
+		   target="_blank">The Mozilla homepage</a>
+
+		<!-- You can omit quotes around attribute values, but they can cause problems
+			 if your attribute value contains spaces -->
+		<a href=https://www.mozilla.org />favorite website</a>
+		<br />
+		<a href=https://www.mozilla.org title=The Mozilla homepage/>favorite website</a>
+		<!-- The tooltip created by the title shows only "The". 
+			 "Mozilla" is considered another attribute name with 
+			 "homepage" it's value -->
+
+		<br />
+		<!-- If you use one type of quote to specify the attribute value,
+			 you can use the other quote type inside the attribute value -->
+		<a href="https://www.example.com" title="Isn't this fun?">A link to my example </a>
+		<br />
+		<!-- You can use entity references within quotes for attribute values. -->
+		<a href="https://www.example.com" title="Isn&apos;t this fun?">A link to my example </a>
+		<br />
+		<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started#entity_references_including_special_characters_in_html">
+			Entity references
+		</a>
+	</body>
+</html>
